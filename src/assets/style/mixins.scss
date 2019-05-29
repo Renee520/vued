@@ -1,0 +1,20 @@
+
+@mixin ellipsis($line: '', $lineHeight: ''){
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  // -webkit-box-orient: vertical;
+  @if($line != '') {
+    @if($lineHeight != '') {
+      line-height: $lineHeight;
+    }
+    display: -webkit-box !important;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+  }
+}

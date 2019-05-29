@@ -13,9 +13,25 @@ $color-border-light: #dfdfde;
 
 $animate-time: .3s;
 
+$font-size: 14px;
+
 /*** z-index ***/
 $z-index-mask: 1000;
 $z-index-mask-content: 1001;
 
+/*** space ***/
+$space-xs: 5px;
+$space-sm: 8px;
+$space-primary: 10px;
+$space-md: 15px;
+$space-lg: 20px;
+
 /*** width height ***/
 $aside-width: 200px;
+$header-height: 50px;
+
+:export {
+  primaryColor: $color-primary;
+  whiteColor: $color-white;
+  headerHeight: $header-height;
+}

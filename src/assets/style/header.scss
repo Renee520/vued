@@ -1,0 +1,26 @@
+.yy-header {
+  height: $header-height;
+  background-color: $color-primary;
+  color: $color-white;
+  position: relative;
+  * {
+    color: $color-white;
+  }
+  &__title {
+    max-width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    @include ellipsis;
+  }
+
+  &__prev, &__next {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: $space-primary;
+  }
+  &__next {
+    left: auto;
+    right: $space-primary;
+  }
+}

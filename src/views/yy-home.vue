@@ -1,13 +1,21 @@
 <template>
   <div :class="prefixCls">
-   <yy-aside v-test v-model="openAside" :placement="'right'">
+   <yy-aside v-model="openAside" :placement="'right'">
      <div slot="aside">
-       <div class="yy-list">
-         <router-link to="/icon">icon</router-link>
+       <div class="yy-list" @click="go2link('/base')">
+        基础组件
        </div>
      </div>
       <div class="page-home">
-        <div @click="openAside = true;">打开</div>
+        <yy-header
+          left-arrow
+          left-text="返回"
+          title="首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页"
+          @click-left="handleClickLeft"
+          >
+          <i slot="right" class="yy-icon-th-list"></i>
+        </yy-header>
+        <!-- <div @click="openAside = true;">打开</div> -->
         <router-view />
       </div>
    </yy-aside>
@@ -22,14 +30,21 @@ export default {
       openAside: false,
     };
   },
-  watch: {
-  },
-  directives: {
-    test: {
-      inserted: (el) => {
-        console.log('000000001', el.parentNode);
-      },
+  methods: {
+    go2link(path) {
+      this.$router.push({
+        path,
+      });
+      this.openAside = false;
     },
+    handleClickLeft() {
+      console.log('click left');
+    },
+    handleClickRight() {
+      console.log('click right');
+    },
+  },
+  watch: {
   },
 };
 </script>

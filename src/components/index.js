@@ -1,7 +1,9 @@
 import Aside from '@/components/yy-aside';
+import Header from '@/components/yy-header';
 
 const components = [
   Aside,
+  Header,
 ];
 
 const install = (Vue) => {
