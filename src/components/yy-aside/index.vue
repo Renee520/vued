@@ -2,7 +2,7 @@
   <div :class="[
     prefixCls,
     asideClass,
-  ]" v-transfer-dom>
+  ]" v-transfer-dom v-test>
   <div :class="{'yy-aside-body': showMode === 'push'}" :style="styleFormat">
     <slot></slot>
   </div>
@@ -23,8 +23,8 @@
 import TransferDom from '@/directives/transfer-dom';
 
 const prefixCls = 'yy-aside';
-
 export default {
+  name: 'yy-aside',
   props: {
     width: {
       type: [Number, String],
@@ -38,7 +38,7 @@ export default {
     },
     showMode: {
       type: String,
-      default: 'push',
+      default: 'overlay',
       validator: value => ['push', 'overlay'].indexOf(value) >= 0,
     },
     asideClass: {
@@ -46,17 +46,27 @@ export default {
       default: '',
     },
   },
-  directives: { TransferDom },
+  directives: {
+    TransferDom,
+    test: {
+      inserted: (el) => {
+        console.log('000000002', el.parentNode);
+      },
+    },
+  },
   data() {
     return {
       prefixCls,
       openAside: false,
       asideWidth: '0px',
       slideWidth: '0px',
+      showAside: false,
     };
   },
   created() {
     this.widthFormat();
+  },
+  mounted() {
   },
   methods: {
     widthFormat() {

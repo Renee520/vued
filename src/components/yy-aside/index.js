@@ -1,7 +1,3 @@
-import YyAside from './index.vue';
+import Aside from './index.vue';
 
-export default {
-  install(Vue) {
-    Vue.component('yy-aside', YyAside);
-  },
-};
+export default Aside;

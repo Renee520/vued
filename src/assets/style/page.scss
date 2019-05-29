@@ -8,6 +8,12 @@
   color: $color-font;
 }
 
+body,html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 .yy-text {
   &--center {
     text-align: center;

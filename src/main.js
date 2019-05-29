@@ -3,8 +3,12 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
+// import './components';
+import vued from './components';
 
-import './components';
+console.log('99999999', vued);
+
+Vue.use(vued);
 
 Vue.config.productionTip = false;
 

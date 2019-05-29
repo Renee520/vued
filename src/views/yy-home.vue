@@ -1,10 +1,15 @@
 <template>
   <div :class="prefixCls">
-   <yy-aside v-model="openAside" :placement="'right'">
+   <yy-aside v-test v-model="openAside" :placement="'right'">
      <div slot="aside">
-       <div @click="openAside = false;">关闭</div>
+       <div class="yy-list">
+         <router-link to="/icon">icon</router-link>
+       </div>
      </div>
-      <div @click="openAside = true;">打开打开打开打开打开打开</div>
+      <div class="page-home">
+        <div @click="openAside = true;">打开</div>
+        <router-view />
+      </div>
    </yy-aside>
   </div>
 </template>
@@ -18,6 +23,13 @@ export default {
     };
   },
   watch: {
+  },
+  directives: {
+    test: {
+      inserted: (el) => {
+        console.log('000000001', el.parentNode);
+      },
+    },
   },
 };
 </script>
