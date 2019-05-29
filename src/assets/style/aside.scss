@@ -1,0 +1,20 @@
+.yy-aside {
+  &-wrap {
+    height: 100%;
+    position: absolute;
+    width: 200px;
+    background-color: $color-white;
+    z-index: $z-index-mask-content;
+    top: 0;
+    left: -200px;
+    -webkit-transition: $animate-time ease-out;
+    transition: $animate-time ease-out;
+    &--open {
+    }
+  }
+  &-body {
+    -webkit-transition: transform $animate-time ease-out;
+    transition: transform $animate-time ease-out;
+    
+  }
+}
