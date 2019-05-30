@@ -9,13 +9,15 @@ $color-white: #fff;
 $color-black: #000;
 $color-gray: #5b5b5a;
 $color-border-deep: #adadab;
-$color-border-light: #dfdfde;
+$color-border-light: #f1f1ef;
 
 $animate-time: .3s;
 
 $font-size: 14px;
+$grid-col: 1,2,3,4,5,6;
 
 /*** z-index ***/
+$z-index-header: 999;
 $z-index-mask: 1000;
 $z-index-mask-content: 1001;
 
@@ -34,4 +36,5 @@ $header-height: 50px;
   primaryColor: $color-primary;
   whiteColor: $color-white;
   headerHeight: $header-height;
+  headerZIndex: $z-index-header;
 }

@@ -6,8 +6,6 @@ import './registerServiceWorker';
 // import './components';
 import vued from './components';
 
-console.log('99999999', vued);
-
 Vue.use(vued);
 
 Vue.config.productionTip = false;

@@ -1,9 +1,11 @@
 import Aside from '@/components/yy-aside';
 import Header from '@/components/yy-header';
+import Grid from '@/components/yy-grid';
 
 const components = [
   Aside,
   Header,
+  Grid,
 ];
 
 const install = (Vue) => {

@@ -15,6 +15,11 @@ body,html {
   overflow-x: hidden;
 }
 
+.yy-page {
+  padding: $space-primary;
+  margin-top: $header-height;
+}
+
 .yy-text {
   &--center {
     text-align: center;

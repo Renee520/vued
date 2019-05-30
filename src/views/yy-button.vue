@@ -1,15 +1,12 @@
 <template>
-  <div :class="prefixCls">
-    <i class="yy-icon-mail"></i>
+  <div class="yy-page">
+    按钮
   </div>
 </template>
-
 <script>
-const prefixCls = 'yy-icon';
 export default {
   data() {
     return {
-      prefixCls,
     };
   },
 };

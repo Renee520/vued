@@ -1,15 +1,24 @@
 <template>
-  <div :class="prefixCls">
-    基础组件
-    <router-link to="/base-icon">icon</router-link>
+  <div class="yy-page">
+    <yy-grid color :options="options" full-border></yy-grid>
   </div>
 </template>
 <script>
-const prefixCls = 'yy-base';
 export default {
   data() {
     return {
-      prefixCls,
+      options: [
+        {
+          to: 'base-icon',
+          text: 'ICON',
+          icon: 'yy-icon-cancel-circled',
+        },
+        {
+          to: 'base-button',
+          text: '按钮',
+          icon: 'yy-icon-iphone-home',
+        },
+      ],
     };
   },
 };

@@ -1,0 +1,63 @@
+@mixin grid{
+  @each $i in $grid-col{
+    .yy-grid-#{$i}{
+      flex: 0 0 calc(100% / #{$i});
+      padding: $space-sm $space-sm $space-sm + $space-primary;
+      text-align: center;
+    }
+  }
+}
+
+.yy-grid {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  position: relative;
+  
+  @include grid;
+  &-border {
+    [class*=" yy-grid-"],[class^="yy-grid-"] {
+      border-right: 1px solid $color-border-light;
+      border-bottom: 1px solid $color-border-light;
+    }
+    &:before {
+      @include border;
+    }
+    &:after {
+      @include border;
+      width: 1px;
+      height: 100%;
+      border-left: 1px solid $color-border-light;
+    }
+  }
+  &-border--full {
+    &:before {
+      @include border;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      border: 1px solid $color-border-light;
+      z-index: -1;
+    }
+    [class*=" yy-grid-"],[class^="yy-grid-"] {
+      border-right: 1px solid $color-border-light;
+      border-bottom: 1px solid $color-border-light;
+    }
+  }
+
+  &__img {
+    width: 50%;
+    text-align: center;
+    margin: $space-primary auto;
+    * {
+      font-size: $font-size * 2;
+    }
+    img {
+      width: 100%;
+      vertical-align: -webkit-baseline-middle;
+      vertical-align: middle;
+    }
+  }
+  &__text {
+    @include ellipsis(1, $space-lg);
+  }
+}

@@ -29,6 +29,10 @@ export default {
     bgColor: String,
     textColor: String,
     height: Number,
+    fixed: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -42,7 +46,11 @@ export default {
     styleFormat() {
       const height = this.height ? `${this.height}px` : this.vars.headerHeight;
       const bgColor = this.bgColor ? this.bgColor : this.vars.primaryColor;
-      return `height: ${height};line-height: ${height};background-color: ${bgColor};`;
+      let style = `height: ${height};line-height: ${height};background-color: ${bgColor};`;
+      if (this.fixed) {
+        style += `width: 100%;position: fixed; top: 0; left: 0; z-index: ${vars.headerZIndex};`;
+      }
+      return style;
     },
   },
   methods: {

@@ -2,7 +2,7 @@
   <div :class="[
     prefixCls,
     asideClass,
-  ]" v-transfer-dom v-test>
+  ]" v-transfer-dom>
   <div :class="{'yy-aside-body': showMode === 'push'}" :style="styleFormat">
     <slot></slot>
   </div>
@@ -48,11 +48,6 @@ export default {
   },
   directives: {
     TransferDom,
-    test: {
-      inserted: (el) => {
-        console.log('000000002', el.parentNode);
-      },
-    },
   },
   data() {
     return {

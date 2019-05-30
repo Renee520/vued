@@ -50,7 +50,6 @@ const directive = {
     var home = document.createComment('')
     var hasMovedOut = false
 
-    console.log('33333331', el.parentNode);
     if (value !== false && parentNode) {
       parentNode.replaceChild(home, el) // moving out, el is no longer in the document
       getTarget(value).appendChild(el) // moving into new place

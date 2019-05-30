@@ -2,49 +2,67 @@
   <div :class="prefixCls">
    <yy-aside v-model="openAside" :placement="'right'">
      <div slot="aside">
-       <div class="yy-list" @click="go2link('/base')">
-        基础组件
+       <div class="yy-list" v-for="(nav, i) in navRouter" :key="i" @click="go2link(nav)">
+        {{nav.meta.title}}
        </div>
      </div>
       <div class="page-home">
         <yy-header
-          left-arrow
-          left-text="返回"
-          title="首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页"
+          :left-arrow="leftArrow"
+          :left-text="leftArrow ? '返回' : ''"
+          :title="title"
           @click-left="handleClickLeft"
           >
-          <i slot="right" class="yy-icon-th-list"></i>
+          <span v-if="!leftArrow" @click="openAside = true" slot="right" ><i class="yy-icon-th-list"></i></span>
         </yy-header>
-        <!-- <div @click="openAside = true;">打开</div> -->
-        <router-view />
+        <transition :name="transitionName">
+          <router-view />
+        </transition>
       </div>
    </yy-aside>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
+import navRouter from '@/router/navRouter';
+
 const prefixCls = 'yy-home';
 export default {
   data() {
     return {
       prefixCls,
       openAside: false,
+      leftArrow: false,
+      leftText: '',
+      title: '',
+      navRouter,
     };
   },
   methods: {
-    go2link(path) {
+    go2link(nav) {
       this.$router.push({
-        path,
+        name: nav.name,
       });
       this.openAside = false;
     },
     handleClickLeft() {
-      console.log('click left');
-    },
-    handleClickRight() {
-      console.log('click right');
+      this.$router.back();
     },
   },
   watch: {
+    $route(to) {
+      this.title = to.meta.title || '';
+      this.leftArrow = to.meta.back || false;
+    },
+  },
+  computed: {
+    ...mapGetters([
+      'transitionName',
+    ]),
+  },
+  created() {
+    this.title = this.$route.meta.title || '';
+    this.leftArrow = this.$route.meta.back || false;
   },
 };
 </script>
