@@ -1,6 +1,8 @@
 <template>
   <div>
-    <yy-grid class="yy-page" color :col="3" :options="iconData" full-border></yy-grid>
+    <div class="yy-page" >
+      <yy-grid color :col="3" :options="iconData" border></yy-grid>
+    </div>
   </div>
 </template>
 

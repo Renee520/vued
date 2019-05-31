@@ -1,11 +1,15 @@
 import Aside from '@/components/yy-aside';
 import Header from '@/components/yy-header';
 import Grid from '@/components/yy-grid';
+import Loading from '@/components/yy-loading';
+import Button from '@/components/yy-button';
 
 const components = [
   Aside,
   Header,
   Grid,
+  Loading,
+  Button,
 ];
 
 const install = (Vue) => {

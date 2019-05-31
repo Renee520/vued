@@ -7,14 +7,16 @@ $color-warning: #f4db0a;
 
 $color-white: #fff;
 $color-black: #000;
-$color-gray: #5b5b5a;
+$color-info: #5b5b5a;
 $color-border-deep: #adadab;
-$color-border-light: #f1f1ef;
+$color-border-light: #eee;
+// $color-border-light: #f1f1ef;
 
 $animate-time: .3s;
 
 $font-size: 14px;
 $grid-col: 1,2,3,4,5,6;
+$button-types: (primary $color-primary),(error $color-error), (warning $color-warning), (success $color-success), (info $color-info);
 
 /*** z-index ***/
 $z-index-header: 999;
@@ -31,10 +33,15 @@ $space-lg: 20px;
 /*** width height ***/
 $aside-width: 200px;
 $header-height: 50px;
+$button-height: 40px;
 
 :export {
   primaryColor: $color-primary;
   whiteColor: $color-white;
+  errorColor: $color-error;
+  warninfColoe: $color-warning;
+  infoColor: $color-info;
+  successColor: $color-success;
   headerHeight: $header-height;
   headerZIndex: $z-index-header;
 }

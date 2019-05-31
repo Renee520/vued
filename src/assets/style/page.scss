@@ -15,9 +15,46 @@ body,html {
   overflow-x: hidden;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 1px solid transparent;  //自定义边框
+  outline: none;    //消除默认点击蓝色边框效果
+}
+
+.yy-loading {
+  display: inline-block;
+  vertical-align: middle;
+  &__circular {
+    width: 100%;
+    height: 100%;
+    svg {
+      width: 100%;
+      height: 100%;
+      vertical-align: super;
+    }
+    circle {
+      -webkit-animation: circular 1.5s ease-in-out infinite;
+      animation: circular 1.5s ease-in-out infinite;
+      stroke: $color-font;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+  }
+}
+
 .yy-page {
   padding: $space-primary;
   margin-top: $header-height;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+
+.yy-box {
+  & + .yy-box {
+    margin-top: $space-primary;
+  }
 }
 
 .yy-text {
@@ -31,7 +68,7 @@ body,html {
     text-align: right;
   }
   &--gray {
-    color: $color-gray;
+    color: $color-info;
   }
 }
 

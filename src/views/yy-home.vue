@@ -6,7 +6,7 @@
         {{nav.meta.title}}
        </div>
      </div>
-      <div class="page-home">
+      <div class="yy-home">
         <yy-header
           :left-arrow="leftArrow"
           :left-text="leftArrow ? '返回' : ''"
