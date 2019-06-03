@@ -51,6 +51,18 @@ button {
   overflow-y: auto;
 }
 
+.yy-layout {
+  [class*=" yy-button--"],[class^="yy-button--"] {
+    border: none;
+    height: 30px;
+    line-height: 30px;
+  }
+  .yy-column .yy-col {
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
 .yy-box {
   & + .yy-box {
     margin-top: $space-primary;

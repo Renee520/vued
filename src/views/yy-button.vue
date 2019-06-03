@@ -33,6 +33,7 @@
     <div class="yy-box">
       <yy-button type="primary" icon="yy-icon-venus">图标按钮</yy-button>
       <yy-button type="primary" icon="yy-icon-spin4 animate-spin">图标按钮</yy-button>
+      <yy-button type="primary" icon="yy-icon-edit"></yy-button>
     </div>
     <div class="yy-box">
       <yy-button type="warning" loading="spin4">spin4</yy-button>

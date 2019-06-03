@@ -1,9 +1,9 @@
 <template>
-  <button @click="handleClick" :type="nativeType" :class="buttonClass" :style="buttonStyle" :disabled="loading || disabled">
+  <button @click="handleClick" :type="nativeType" :class="buttonClass" :style="buttonStyle" :disabled="loading.length || disabled">
     <div :class="prefixCls + '__wrap'">
       <i v-if="(icon && icon.length) || (loading && loading !== 'circular')" :class="icon || loadingIcon"></i>
-      <yy-loading :color="circularColor" :width="20" :height="20" v-if="loading && loading === 'circular'"></yy-loading>
-      <slot></slot>
+      <yy-loading :color="circularColor" :width="25" :height="25" v-if="loading && loading === 'circular'"></yy-loading>
+      <span><slot></slot></span>
     </div>
   </button>
 </template>

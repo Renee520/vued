@@ -18,6 +18,11 @@ export default {
           text: '按钮',
           icon: 'yy-icon-iphone-home',
         },
+        {
+          to: 'base-layout',
+          text: 'layout布局',
+          icon: 'yy-icon-layout',
+        },
       ],
     };
   },

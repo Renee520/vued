@@ -3,6 +3,9 @@ import Header from '@/components/yy-header';
 import Grid from '@/components/yy-grid';
 import Loading from '@/components/yy-loading';
 import Button from '@/components/yy-button';
+import Row from '@/components/yy-row';
+import Column from '@/components/yy-column';
+import Col from '@/components/yy-col';
 
 const components = [
   Aside,
@@ -10,6 +13,9 @@ const components = [
   Grid,
   Loading,
   Button,
+  Row,
+  Column,
+  Col,
 ];
 
 const install = (Vue) => {

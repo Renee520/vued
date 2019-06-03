@@ -1,0 +1,29 @@
+.yy-row{
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  .yy-col {
+    flex: 1;
+    text-align: center;
+    background-clip: content-box;
+  }
+  @for $i from 0 through 24 {
+    .yy-col--#{$i} {
+      flex: 0 0 (100 * $i / 24) * 1%;
+    }
+    .yy-col-offset--#{$i} {
+      margin-left: (100 * $i / 24) * 1%;
+    }
+  }
+}
+
+.yy-column {
+  @extend .yy-row;
+  flex-direction: column;
+  @for $i from 0 through 24 {
+    .yy-col-offset--#{$i} {
+      margin-top: (100 * $i / 24) * 1%;
+      margin-left: 0;
+    }
+  }
+}
