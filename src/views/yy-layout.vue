@@ -44,11 +44,11 @@
       </yy-row>
     </div>
     <div class="yy-box">
-      <yy-column :gutter="10" style="height: 100px;">
+      <yy-column style="height: 100px;">
         <yy-col class="yy-button--success" :span="12">
           <span>column span:12</span>
         </yy-col>
-        <yy-col class="yy-button--success" :span="12">
+        <yy-col class="yy-button--warning" :span="12">
           <span>column span:12</span>
         </yy-col>
       </yy-column>
@@ -60,13 +60,6 @@
         </yy-col>
         <yy-col class="yy-button--info" :span="16">
           <span>column span:16</span>
-        </yy-col>
-      </yy-column>
-    </div>
-    <div class="yy-box">
-      <yy-column :gutter="10" style="height: 200px;">
-        <yy-col :offset="12" class="yy-button--primary" :span="12">
-          <span>column span:12</span>
         </yy-col>
       </yy-column>
     </div>
