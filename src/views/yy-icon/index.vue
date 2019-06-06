@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <div class="yy-page" >
-      <yy-grid color :col="3" :options="iconData" border></yy-grid>
+  <div class="yy-page" >
+    <div class="yy-box--gray">
+      旋转icon需添加class：animate-spin，如 'y-icon-spin4 animate-spin'
     </div>
+    <yy-grid color :col="3" :options="iconData" border></yy-grid>
   </div>
 </template>
 

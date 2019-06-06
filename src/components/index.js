@@ -6,6 +6,8 @@ import Button from '@/components/yy-button';
 import Row from '@/components/yy-row';
 import Column from '@/components/yy-column';
 import Col from '@/components/yy-col';
+import CellGroup from '@/components/yy-cell-group';
+import Cell from '@/components/yy-cell';
 
 const components = [
   Aside,
@@ -16,6 +18,8 @@ const components = [
   Row,
   Column,
   Col,
+  CellGroup,
+  Cell,
 ];
 
 const install = (Vue) => {

@@ -23,6 +23,11 @@ export default {
           text: 'layout布局',
           icon: 'yy-icon-layout',
         },
+        {
+          to: 'base-cell',
+          text: 'cell',
+          icon: 'yy-icon-menu',
+        },
       ],
     };
   },

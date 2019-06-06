@@ -51,6 +51,16 @@ button {
   overflow-y: auto;
 }
 
+pre,code {
+  position: relative;
+  display: block;
+  font-size: $font-size - 2;
+  overflow-x: auto;
+  word-break: break-all;
+  white-space: pre-wrap;
+  font-family: '微软雅黑';
+}
+
 .yy-layout {
   [class*=" yy-button--"],[class^="yy-button--"] {
     border: none;
@@ -64,8 +74,17 @@ button {
 }
 
 .yy-box {
+  overflow: auto;
   & + .yy-box {
     margin-top: $space-primary;
+  }
+  &--gray {
+    background-color: $color-border-light;
+    padding: $space-primary;
+    margin: $space-primary auto;
+    + .yy-box {
+      margin-top: $space-primary;
+    }
   }
 }
 
@@ -79,8 +98,17 @@ button {
   &--right {
     text-align: right;
   }
+  &--primary {
+    color: $color-primary;
+  }
   &--gray {
     color: $color-info;
+  }
+  &--success {
+    color: $color-success;
+  }
+  &--error {
+    color: $color-error;
   }
 }
 

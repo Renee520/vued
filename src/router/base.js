@@ -1,6 +1,7 @@
 import Icon from '@/views/yy-icon/index.vue';
-import Button from '@/views/yy-button.vue';
-import Layout from '@/views/yy-layout.vue';
+import Button from '@/views/yy-button/index.vue';
+import Layout from '@/views/yy-layout/index.vue';
+import Cell from '@/views/yy-cell/index.vue';
 
 const Router = [
   {
@@ -27,6 +28,15 @@ const Router = [
     component: Layout,
     meta: {
       title: 'layout布局',
+      back: true,
+    },
+  },
+  {
+    path: '/base-cell',
+    name: 'base-cell',
+    component: Cell,
+    meta: {
+      title: 'cell',
       back: true,
     },
   },
