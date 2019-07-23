@@ -2,7 +2,11 @@
   <div :class="prefixCls">
    <yy-aside v-model="openAside" :placement="'right'">
      <div slot="aside">
-       <div class="yy-list" v-for="(nav, i) in navRouter" :key="i" @click="go2link(nav)">
+       <div :class="[
+        'yy-list',
+        'yy-list--isLink',
+        {'yy-list--selected': currNav.name === nav.name}
+       ]" v-for="(nav, i) in navRouter" :key="i" @click="go2link(nav)">
         {{nav.meta.title}}
        </div>
      </div>
@@ -10,7 +14,7 @@
         <yy-header
           :left-arrow="leftArrow"
           :left-text="leftArrow ? '返回' : ''"
-          :title="title"
+          :title="currNav.title"
           @click-left="handleClickLeft"
           >
           <span v-if="!leftArrow" @click="openAside = true" slot="right" ><i class="yy-icon-th-list"></i></span>
@@ -35,6 +39,7 @@ export default {
       leftArrow: false,
       leftText: '',
       title: '',
+      currNav: {},
       navRouter,
     };
   },
@@ -51,6 +56,10 @@ export default {
   },
   watch: {
     $route(to) {
+      this.currNav = {
+        name: to.name,
+        title: to.meta.title || '',
+      };
       this.title = to.meta.title || '';
       this.leftArrow = to.meta.back || false;
     },
@@ -61,7 +70,7 @@ export default {
     ]),
   },
   created() {
-    this.title = this.$route.meta.title || '';
+    this.currNav = this.$route.meta.title ? { name: this.$route.name, title: this.$route.meta.title } : {};
     this.leftArrow = this.$route.meta.back || false;
   },
 };

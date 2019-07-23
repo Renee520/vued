@@ -1,7 +1,9 @@
 <template>
-  <div :class="prefixCls">
+  <div>
     <div :class="prefixCls + '__title'">{{title}}</div>
-    <slot></slot>
+    <div :class="prefixCls">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>

@@ -8,6 +8,8 @@ import Column from '@/components/yy-column';
 import Col from '@/components/yy-col';
 import CellGroup from '@/components/yy-cell-group';
 import Cell from '@/components/yy-cell';
+import Radio from '@/components/yy-radio';
+import RadioGroup from '@/components/yy-radio-group';
 
 const components = [
   Aside,
@@ -20,6 +22,8 @@ const components = [
   Col,
   CellGroup,
   Cell,
+  Radio,
+  RadioGroup,
 ];
 
 const install = (Vue) => {

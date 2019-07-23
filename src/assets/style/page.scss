@@ -15,12 +15,12 @@ body,html {
   overflow-x: hidden;
 }
 
-button {
-  margin: 0;
-  padding: 0;
+input, button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   background: none;
-  border: 1px solid transparent;  //自定义边框
   outline: none;    //消除默认点击蓝色边框效果
+  -webkit-appearance:none;
+  border:none;
 }
 
 .yy-loading {
@@ -49,6 +49,9 @@ button {
   margin-top: $header-height;
   height: calc(100vh - 50px);
   overflow-y: auto;
+  &--reach {
+    padding: $space-primary 0;
+  }
 }
 
 pre,code {
@@ -101,8 +104,11 @@ pre,code {
   &--primary {
     color: $color-primary;
   }
-  &--gray {
+  &--info {
     color: $color-info;
+  }
+  &--gray {
+    color: $color-gray;
   }
   &--success {
     color: $color-success;
@@ -145,5 +151,17 @@ pre,code {
   &--open {
     opacity: .5;
     visibility: visible;
+  }
+}
+
+.yy-list {
+  padding: $space-primary;
+  &--selected {
+    background-color: $color-primary;
+    color: $color-white;
+    transition: all 0.3s;
+  }
+  &--isLink {
+    cursor: pointer;
   }
 }

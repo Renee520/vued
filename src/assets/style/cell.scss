@@ -1,0 +1,53 @@
+.yy-cell {
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  padding: $space-primary;
+  align-items: center;
+  line-height: 20px;
+  &:before {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: calc(100% - 10px);
+    top: 0;
+    left: $space-primary;
+    border-top: 1px solid $color-border-light;
+  }
+  
+  &-group {
+    position: relative;
+    &:before,&:after{
+      content: '';
+      position: absolute;
+      height: 0;
+      width: 100%;
+      top: 0;
+      border-top: 1px solid $color-border-light;
+    }
+    &:after {
+      top: auto;
+      bottom: 0;
+    }
+    &__title {
+      padding: $space-primary;
+      color: $color-info;
+    }
+  }
+  &__icon {
+    width: $font-size;
+    text-align: right;
+    display: inline-block;
+    &--left {
+      margin-right: $space-xs;
+    }
+  }
+  &__content {
+    flex: 1;
+    text-align: right;
+    @include ellipsis(1, 20px);
+  }
+  &--isLink {
+    cursor: pointer;
+  }
+}

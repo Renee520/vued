@@ -4,6 +4,7 @@ import Home from '@/views/yy-home.vue';
 import navRouter from './navRouter';
 
 import baseRouters from './base';
+import formRouters from './form';
 import store from '@/store';
 
 Vue.use(Router);
@@ -16,18 +17,19 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      redirect: '/base',
+      redirect: '/form',
       children: [
         ...navRouter,
         ...baseRouters,
+        ...formRouters,
       ],
     },
   ],
 });
 
 router.beforeEach((to, from, next) => {
-  if (!store.state.login && to.name !== 'base') {
-    next({ path: '/base' });
+  if (!store.state.login && to.name !== 'form') {
+    next({ path: '/form' });
   } else {
     let { prevRouters } = store.state;
     // 处理导航组件
