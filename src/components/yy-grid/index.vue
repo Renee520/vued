@@ -1,5 +1,5 @@
 <template>
-  <div :class="[
+  <div v-if="options.length" :class="[
     prefixCls,
     {'yy-grid-border': border},
     {'yy-grid-border--full': fullBorder},

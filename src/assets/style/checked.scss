@@ -1,10 +1,10 @@
-$radio-icon-circle: 14px;
+$checked-icon-circle: 14px;
 
-.yy-radio {
+.yy-checked {
   position: relative;
   label {
-    margin-left: $radio-icon-circle + $space-sm;
-    line-height: $radio-icon-circle * 2;
+    margin-left: $checked-icon-circle + $space-sm;
+    line-height: $checked-icon-circle * 2;
     transition: color .2s ease-in-out;
   }
   input {
@@ -15,7 +15,7 @@ $radio-icon-circle: 14px;
     top: 0;
     left: 0;
     z-index: 10;
-    &:checked:not(:disabled) + .yy-radio__icon {
+    &:checked:not(:disabled) + .yy-checked__icon {
       &:before {
         border-color: $color-primary;
         background-color: $color-primary;
@@ -24,18 +24,18 @@ $radio-icon-circle: 14px;
         transform: translate(-50%, -50%) scale(1);
       }
     }
-    &:checked:not(:disabled) + .yy-radio__icon--selected {
+    &:checked:not(:disabled) + .yy-checked__icon--selected {
       &:after {
         transform: translate(-50%, -50%) rotate(45deg) scale(1);
       }
     }
-    &:checked:disabled + .yy-radio__icon--checked {
+    &:checked:disabled + .yy-checked__icon--checked {
       &:after {
         background-color: $color-border;
         transform: translate(-50%, -50%) scale(1);
       }
     }
-    &:checked:disabled + .yy-radio__icon--selected {
+    &:checked:disabled + .yy-checked__icon--selected {
       &:after {
         border-color: $color-border;
         transform: translate(-50%, -50%) rotate(45deg) scale(1);
@@ -44,15 +44,15 @@ $radio-icon-circle: 14px;
   }
   &__icon {
     position: absolute;
-    width: $radio-icon-circle + 2;
-    height: $radio-icon-circle + 2;
+    width: $checked-icon-circle + 2;
+    height: $checked-icon-circle + 2;
     display: inline-block;
     top: 50%;
     transform: translate(0, -50%);
     &:before {
       content: '';
-      width: $radio-icon-circle;
-      height: $radio-icon-circle;
+      width: $checked-icon-circle;
+      height: $checked-icon-circle;
       display: inline-block;
       border-radius: 50%;
       margin-right: $space-xs;
@@ -63,15 +63,15 @@ $radio-icon-circle: 14px;
     }
     &--checked:after {
       content: '';
-      width: $radio-icon-circle - 8;
-      height: $radio-icon-circle - 8;
+      width: $checked-icon-circle - 8;
+      height: $checked-icon-circle - 8;
       position: absolute;
       top: 50%;
       left: 50%;
       background-color: $color-white;
       transform: translate(-50%, -50%) scale(0);
       border-radius: 50%;
-      transition: transform .2s ease-in-out;
+      transition: all .2s ease-in-out;
     }
     &--selected:after {
       content: '';
@@ -87,12 +87,15 @@ $radio-icon-circle: 14px;
       transition: transform .2s ease-in-out;
       margin-top: -1px;
     }
+    &--square:before {
+      border-radius: 3px;
+    }
   }
   &--checked {
     label {
       color: $color-primary;
     }
-    &.yy-radio--border {
+    &.yy-checked--border {
       border-color: $color-primary;
     }
   }
@@ -100,13 +103,13 @@ $radio-icon-circle: 14px;
     label {
       color: $color-border;
     }
-    &.yy-radio--border {
+    &.yy-checked--border {
       border-color: $color-border;
     }
   }
   &--inline {
     display: inline-block;
-    & + .yy-radio--inline {
+    & + .yy-checked--inline {
       margin-left: $space-lg;
     }
   }
@@ -114,24 +117,25 @@ $radio-icon-circle: 14px;
     border-radius: 5px;
     padding: $space-xs - 3 $space-lg;
     border: 1px solid $color-border;
+    transition: border-color .2s ease-in-out;
   }
   &--mini {
     label {
       font-size: $font-size - 2;
-      margin-left: $radio-icon-circle + $space-xs;
+      margin-left: $checked-icon-circle + $space-xs;
     }
-    .yy-radio__icon {
-      width: $radio-icon-circle !important;
-      height: $radio-icon-circle !important;
+    .yy-checked__icon {
+      width: $checked-icon-circle !important;
+      height: $checked-icon-circle !important;
       &:before {
-        width: $radio-icon-circle - 2 !important;
-        height: $radio-icon-circle - 2 !important;
+        width: $checked-icon-circle - 2 !important;
+        height: $checked-icon-circle - 2 !important;
       }
     }
-    &.yy-radio--border {
+    &.yy-checked--border {
       padding: 0 $space-md;
     }
-    .yy-radio__icon--selected:after {
+    .yy-checked__icon--selected:after {
       width: 3px;
       height: 7px;
     }
@@ -139,20 +143,20 @@ $radio-icon-circle: 14px;
   &--large {
     label {
       font-size: $font-size + 2;
-      margin-left: $radio-icon-circle + $space-primary;
+      margin-left: $checked-icon-circle + $space-primary;
     }
-    .yy-radio__icon {
-      width: $radio-icon-circle + 4 !important;
-      height: $radio-icon-circle + 4 !important;
+    .yy-checked__icon {
+      width: $checked-icon-circle + 4 !important;
+      height: $checked-icon-circle + 4 !important;
       &:before {
-        width: $radio-icon-circle + 2 !important;
-        height: $radio-icon-circle + 2 !important;
+        width: $checked-icon-circle + 2 !important;
+        height: $checked-icon-circle + 2 !important;
       }
     }
-    &.yy-radio--border {
+    &.yy-checked--border {
       padding: $space-xs $space-lg + $space-sm;
     }
-    .yy-radio__icon--selected:after {
+    .yy-checked__icon--selected:after {
       width: 5px;
       height: 10px;
     }

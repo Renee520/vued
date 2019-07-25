@@ -5,6 +5,7 @@ import navRouter from './navRouter';
 
 import baseRouters from './base';
 import formRouters from './form';
+import showRouters from './show';
 import store from '@/store';
 
 Vue.use(Router);
@@ -22,6 +23,7 @@ const router = new Router({
         ...navRouter,
         ...baseRouters,
         ...formRouters,
+        ...showRouters,
       ],
     },
   ],

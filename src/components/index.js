@@ -10,6 +10,8 @@ import CellGroup from '@/components/yy-cell-group';
 import Cell from '@/components/yy-cell';
 import Radio from '@/components/yy-radio';
 import RadioGroup from '@/components/yy-radio-group';
+import Checkbox from '@/components/yy-checkbox';
+import CheckboxGroup from '@/components/yy-checkbox-group';
 
 const components = [
   Aside,
@@ -24,6 +26,8 @@ const components = [
   Cell,
   Radio,
   RadioGroup,
+  Checkbox,
+  CheckboxGroup,
 ];
 
 const install = (Vue) => {

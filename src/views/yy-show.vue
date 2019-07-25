@@ -12,14 +12,9 @@ export default {
     return {
       options: [
         {
-          to: 'form-radio',
-          text: 'radio',
-          icon: 'yy-icon-dot-circled',
-        },
-        {
-          to: 'form-checkbox',
-          text: 'checkbox',
-          icon: 'yy-icon-ok-circle',
+          to: 'show-toast',
+          text: 'toast',
+          icon: 'yy-icon-comment-empty',
         },
       ],
     };
