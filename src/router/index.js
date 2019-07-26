@@ -18,7 +18,7 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      redirect: '/form',
+      redirect: '/show-toast',
       children: [
         ...navRouter,
         ...baseRouters,
@@ -30,8 +30,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (!store.state.login && to.name !== 'form') {
-    next({ path: '/form' });
+  if (!store.state.login && to.name !== 'show-toast') {
+    next({ path: '/show-toast' });
   } else {
     let { prevRouters } = store.state;
     // 处理导航组件

@@ -148,6 +148,13 @@ pre,code {
   &--black {
     background-color: $color-black;
   }
+  &--white {
+    background-color: $color-white;
+  }
+  &--transparent {
+    background-color: transparent;
+    visibility: visible;
+  }
   &--open {
     opacity: .5;
     visibility: visible;

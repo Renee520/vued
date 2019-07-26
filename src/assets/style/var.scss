@@ -38,6 +38,16 @@ $aside-width: 200px;
 $header-height: 50px;
 $button-height: 40px;
 
+/*** border raduis ***/
+$border-radius-sm: 3px;
+$border-radius-primary: 5px;
+$border-radius-md: 8px;
+$border-radius-circle: 50%;
+
+/*** z-index ***/
+$z-index-level1: 1;
+$z-index-level2: 2;
+$z-index-max: 9999;
 :export {
   primaryColor: $color-primary;
   whiteColor: $color-white;

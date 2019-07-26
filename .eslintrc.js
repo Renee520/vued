@@ -13,6 +13,7 @@ module.exports = {
     'linebreak-style': ["off", "windows"],
     'max-len': 'off',
     'no-param-reassign': ["error", { "props": false }],
+    'prefer-arrow-callback': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',

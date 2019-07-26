@@ -12,6 +12,7 @@ import Radio from '@/components/yy-radio';
 import RadioGroup from '@/components/yy-radio-group';
 import Checkbox from '@/components/yy-checkbox';
 import CheckboxGroup from '@/components/yy-checkbox-group';
+import Toast from '@/components/yy-toast';
 
 const components = [
   Aside,
@@ -28,6 +29,7 @@ const components = [
   RadioGroup,
   Checkbox,
   CheckboxGroup,
+  Toast,
 ];
 
 const install = (Vue) => {
