@@ -2,53 +2,78 @@
 import Vue from 'vue';
 import VueToast from './toast';
 
-let options = {
-  duration: 2000,
-  title: '',
-  msg: '',
-  type: 'text',
-};
+function getdefaultOptions() {
+  return {
+    duration: 2000,
+    msg: '',
+    icon: '',
+    showMask: true,
+    type: '',
+  };
+}
 
+const queue = [];
 const ToastConstructor = Vue.extend(VueToast);
 ToastConstructor.prototype.close = function close() {
-  this.showToast = false;
-  console.log(this);
-  this.$el.addEventListener('transitionend', (e) => {
-    if (e.target.parentNode) {
-      e.target.parentNode.remove();
-      // e.target.parentNode.removeChild(this);
-    }
-  });
+  if (this.showToast) {
+    this.showToast = false;
+    // this.$el.addEventListener('transitionend', (e) => {
+    //   if (e.target.parentNode) {
+    //     e.target.parentNode.remove();
+    //     // e.target.parentNode.removeChild(this);
+    //   }
+    // });
+  }
 };
 
 function createToast() {
-  return new ToastConstructor({
-    el: document.createElement('div'),
-  });
+  if (!queue.length) {
+    const toast = new ToastConstructor({
+      el: document.createElement('div'),
+    });
+    queue.push(toast);
+  }
+  return queue[queue.length - 1];
 }
 
-function Toast(params) {
+function Toast(params, type = '') {
   let op = params;
   if (typeof params === 'string') {
     op = {
       msg: params,
     };
   }
-  options = Object.assign(options, op);
+  const currOptions = getdefaultOptions();
+  Object.assign(currOptions, op);
+  if (type) {
+    currOptions.type = type;
+    currOptions.icon = '';
+  } else {
+    currOptions.type = '';
+  }
 
   const toast = createToast();
   clearTimeout(toast.timer);
-  toast.msg = options.msg;
+  toast.msg = currOptions.msg;
+  toast.icon = currOptions.icon;
+  toast.showMask = currOptions.showMask;
+  toast.type = currOptions.type;
   document.body.appendChild(toast.$el);
   Vue.nextTick(function show() {
     setTimeout(() => {
       toast.showToast = true;
-    }, 10);
+    });
   });
-  toast.timer = setTimeout(() => {
-    toast.close();
-  }, options.duration);
+  if (currOptions.duration) {
+    toast.timer = setTimeout(() => {
+      toast.close();
+    }, currOptions.duration);
+  }
+  return toast;
 }
+['success', 'error', 'loading'].forEach((item) => {
+  Toast[item] = params => Toast(params, item);
+});
 
 // Toast.install = () => {
 //   Vue.use(VueToast);

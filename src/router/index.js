@@ -30,8 +30,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (!store.state.login && to.name !== 'show-toast') {
-    next({ path: '/show-toast' });
+  if (!store.state.login && to.name !== 'base') {
+    next({ path: '/base' });
   } else {
     let { prevRouters } = store.state;
     // 处理导航组件

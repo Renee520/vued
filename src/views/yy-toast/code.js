@@ -1,31 +1,62 @@
 /* eslint-disable */
 
-const base =
-`<yy-cell-group title="基本用法">
-  <yy-cell title="标题" value="内容">
-  </yy-cell>
-  <yy-cell title="标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题"></yy-cell>
-  <yy-cell value="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"></yy-cell>
-  <yy-cell title="标题" value="自定义icon">
-    <i class="yy-icon-cog yy-text--gray" slot="right-icon"></i>
-  </yy-cell>
-</yy-cell-group>`;
+const text =
+`this.$toast('短文本');
+this.$toast('这是一段长文本，这是一段长文本，这是一段长文本');`;
 
-const icon = 
-`<yy-cell-group title="左侧图标">
-<yy-cell title="标题" value="内容" icon="yy-icon-list-bullet"></yy-cell>
-<yy-cell title="标题" value="内容" icon="yy-icon-spin4 animate-spin"></yy-cell>
-</yy-cell-group>`;
+const icon =
+`this.$toast({
+  icon: '../../assets/logo.png',
+  msg: '一张图片',
+});
 
-const link = 
-`<yy-cell-group title="跳转">
-  <yy-cell title="标题" @click="handleClick" is-link value="url页面跳转" url="https://www.baidu.com"></yy-cell>
-  <yy-cell title="标题" @click="handleClick" is-link value="to vue-router跳转" to="base-button"></yy-cell>
-  <yy-cell title="标题" @click="handleClick" is-link value="只设置is-link"></yy-cell>
-</yy-cell-group>`;
+this.$toast({
+  icon: 'yy-icon-heart',
+  msg: '图标类名',
+});`;
+
+const success =
+`this.$toast.success({
+  msg: '加载成功',
+});
+
+this.$toast.error('加载失败');
+
+this.$toast.loading('正在加载');`;
+
+const duration =
+`duration：设置时间，默认时间2000ms
+this.$toast({
+  icon: 'yy-icon-heart',
+  msg: '5s后消失',
+  duration: 5000,
+});
+
+showMask：是否需要透明背景，默认true，则不可点击其他元素
+this.$toast({
+  icon: '../../assets/logo.png',
+  msg: '点击其他按钮',
+  showMask: false,
+});`;
+
+const instance =
+`this.toast = this.$toast.loading({
+  msg: '已加载'+ this.time +'秒',
+  duration: 0,
+});
+this.timer = setInterval(() => {
+  this.time += 1;
+  this.toast.msg =' 已加载'+ this.time +'秒';
+  if (this.time >= 5) {
+    clearInterval(this.timer);
+    this.toast.close();
+  }
+}, 1000);`
 
 export {
-  base,
+  text,
   icon,
-  link,
+  success,
+  duration,
+  instance,
 };

@@ -17,9 +17,10 @@
     height: max-content;
     border-radius: $border-radius-sm;
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(0.8);
     transition: all .2s ease-in-out;
-    p {
+    text-align: center;
+    * {
       color: $color-white;
     }
   }
@@ -32,5 +33,20 @@
   }
   &__text {
     max-width: 80%;
+  }
+  &__icon {
+    i {
+      font-size: $font-size * 3 - 10;
+    }
+    p {
+      margin-top: $space-md;
+      font-size: $font-size + 2;
+    }
+    img {
+      height: 100%;
+      max-height: $font-size * 3 - 2;
+    }
+    width: $toast-icon-width;
+    padding: $space-md * 2 - 2 $space-md;
   }
 }
