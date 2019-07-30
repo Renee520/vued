@@ -13,6 +13,7 @@ import RadioGroup from '@/components/yy-radio-group';
 import Checkbox from '@/components/yy-checkbox';
 import CheckboxGroup from '@/components/yy-checkbox-group';
 import Toast from '@/components/yy-toast';
+import Dialog from '@/components/yy-dialog';
 
 const components = [
   Aside,
@@ -30,6 +31,7 @@ const components = [
   Checkbox,
   CheckboxGroup,
   Toast,
+  Dialog,
 ];
 
 const install = (Vue) => {

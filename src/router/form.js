@@ -9,6 +9,7 @@ const Router = [
     meta: {
       title: '单选',
       back: true,
+      icon: 'yy-icon-dot-circled',
     },
   },
   {
@@ -18,6 +19,7 @@ const Router = [
     meta: {
       title: '复选',
       back: true,
+      icon: 'yy-icon-ok-circle',
     },
   },
 ];

@@ -11,6 +11,7 @@ const Router = [
     meta: {
       title: '图标',
       back: true,
+      icon: 'yy-icon-cancel-circled',
     },
   },
   {
@@ -20,6 +21,7 @@ const Router = [
     meta: {
       title: '按钮',
       back: true,
+      icon: 'yy-icon-iphone-home',
     },
   },
   {
@@ -29,6 +31,7 @@ const Router = [
     meta: {
       title: 'layout布局',
       back: true,
+      icon: 'yy-icon-layout',
     },
   },
   {
@@ -38,6 +41,7 @@ const Router = [
     meta: {
       title: 'cell',
       back: true,
+      icon: 'yy-icon-menu',
     },
   },
 ];

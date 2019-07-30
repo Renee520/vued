@@ -4,25 +4,10 @@
   </div>
 </template>
 <script>
+import navMixin from '@/mixins/nav';
+
 export default {
   name: 'yy-form',
-  methods: {
-  },
-  data() {
-    return {
-      options: [
-        {
-          to: 'form-radio',
-          text: 'radio',
-          icon: 'yy-icon-dot-circled',
-        },
-        {
-          to: 'form-checkbox',
-          text: 'checkbox',
-          icon: 'yy-icon-ok-circle',
-        },
-      ],
-    };
-  },
+  mixins: [navMixin],
 };
 </script>
