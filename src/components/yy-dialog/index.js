@@ -1,10 +1,14 @@
-// import Dialog from './index.vue';
+// import Dialog from './dialog';
 import Vue from 'vue';
 import VueDialog from './dialog';
 
 let instance;
 function getdefaultOptions() {
   return {
+    msgAlign: 'center',
+    msgColor: '',
+    titleAlign: 'center',
+    titleColor: '',
     confirm: {
       text: '确认',
     },
@@ -15,6 +19,9 @@ function getdefaultOptions() {
     callback: (action) => {
       instance[action === 'confirm' ? 'resolve' : 'reject'](action);
     },
+    type: 'alert',
+    value: false,
+    removeRender: true,
   };
 }
 
@@ -31,6 +38,7 @@ const DialogConstructor = Vue.extend(VueDialog);
 //   }
 // };
 
+
 function createDialog() {
   instance = new DialogConstructor({
     el: document.createElement('div'),
@@ -38,7 +46,7 @@ function createDialog() {
   return instance;
 }
 
-function Dialog(params) {
+function Dialog(params, type) {
   return new Promise((resolve, reject) => {
     let op = params;
     if (typeof params === 'string') {
@@ -47,25 +55,24 @@ function Dialog(params) {
       };
     }
     const currOptions = getdefaultOptions();
-    Object.assign(currOptions, op, { resolve, reject });
-    const dialog = createDialog();
-    Object.assign(dialog, currOptions);
-    console.log(dialog);
-    document.body.appendChild(dialog.$el);
+    if (type) {
+      currOptions.type = type;
+    }
+    createDialog();
+    Object.assign(instance, currOptions, op, { resolve, reject });
+    document.body.appendChild(instance.$el);
     Vue.nextTick(function show() {
       setTimeout(() => {
-        dialog.showDialog = true;
+        instance.showDialog = true;
       });
     });
   });
 }
-// ['success', 'error', 'loading'].forEach((item) => {
-//   Dialog[item] = params => Dialog(params, item);
-// });
+Dialog.alert = params => Dialog(params, 'alert');
+Dialog.confirm = params => Dialog(params, 'confirm');
 
-// Dialog.install = () => {
-//   Vue.use(VueDialog);
-// };
+Vue.component(VueDialog.name, VueDialog);
+Vue.use(VueDialog);
 Vue.prototype.$dialog = Dialog;
 
 export default Dialog;

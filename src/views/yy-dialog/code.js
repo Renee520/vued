@@ -1,62 +1,56 @@
 /* eslint-disable */
-
-const text =
-`this.$toast('短文本');
-this.$toast('这是一段长文本，这是一段长文本，这是一段长文本');`;
-
-const icon =
-`this.$toast({
-  icon: '../../assets/logo.png',
-  msg: '一张图片',
+const title =
+`this.$dialog.alert({
+  title: '要上天',
+  msg: '确定上天?',
 });
 
-this.$toast({
-  icon: 'yy-icon-heart',
-  msg: '图标类名',
+this.$dialog.alert({
+  msg: '确定上天确定上天确定上天确定上天确定上天确定上天确定上天确定上天确定上天确定上天确定上天?',
 });`;
 
-const success =
-`this.$toast.success({
-  msg: '加载成功',
-});
-
-this.$toast.error('加载失败');
-
-this.$toast.loading('正在加载');`;
-
-const duration =
-`duration：设置时间，默认时间2000ms
-this.$toast({
-  icon: 'yy-icon-heart',
-  msg: '5s后消失',
-  duration: 5000,
-});
-
-showMask：是否需要透明背景，默认true，则不可点击其他元素
-this.$toast({
-  icon: '../../assets/logo.png',
-  msg: '点击其他按钮',
-  showMask: false,
-});`;
-
-const instance =
-`this.toast = this.$toast.loading({
-  msg: '已加载'+ this.time +'秒',
-  duration: 0,
-});
-this.timer = setInterval(() => {
-  this.time += 1;
-  this.toast.msg =' 已加载'+ this.time +'秒';
-  if (this.time >= 5) {
-    clearInterval(this.timer);
-    this.toast.close();
+const alert =
+`this.$dialog.alert({
+  msg: '确定上天?',
+}).then(
+  () => {
+    that.$toast.success('已上天');
   }
-}, 1000);`
+);
 
+this.$dialog.confirm({
+  msg: '确定上天?',
+}).then(
+  () => {
+    that.$toast.success('已上天');
+  },
+  () => {
+    that.$toast.error('上天失败');
+  },
+);`;
+
+const style =
+`this.$dialog({
+  title: '不一样的标题',
+  msg: '不一样的上天',
+  titleAlign: 'left',
+  titleColor: 'green',
+  msgAlign: 'left',
+  msgColor: '#044e04',
+});`;
+
+const component =
+` <yy-dialog v-model="show" title="标题" :msg="'组件调用'"></yy-dialog>
+
+<yy-dialog v-model="showAuto" title="标题" type="confirm" titleAlign="left" @cancel="handleCancel">
+  <div slot="msg">
+    <p class="yy-text--primary">自定义内容</p>
+    <img style="width: 100%;" src="../../assets/imgs/test.jpg" alt="">
+  </div>
+</yy-dialog>`;
 export {
-  text,
-  icon,
-  success,
-  duration,
-  instance,
+  title,
+  alert,
+  style,
+  component,
 };
