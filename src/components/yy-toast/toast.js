@@ -19,6 +19,7 @@ export default {
       isImgUrl: false,
       imgUrl: '',
       type: '',
+      closed: false,
     };
   },
   created() {
@@ -77,7 +78,7 @@ export default {
           `${prefixCls}__body`,
           { 'yy-toast__text': !that.icon && !that.type },
           { 'yy-toast__icon': that.icon || that.type },
-        ]}>
+        ]} style={ that.bodyStyle }>
           { content }
         </div>
       </div>,
@@ -101,6 +102,26 @@ export default {
         }
       } else {
         this.isImgUrl = false;
+      }
+    },
+  },
+  computed: {
+    bodyStyle() {
+      if (this.closed) {
+        return 'z-index: -1;';
+      }
+      return '';
+    },
+  },
+  watch: {
+    showToast(val) {
+      const that = this;
+      if (val) {
+        this.closed = false;
+      } else {
+        setTimeout(() => {
+          that.closed = true;
+        }, 300);
       }
     },
   },

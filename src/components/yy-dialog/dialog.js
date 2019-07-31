@@ -72,19 +72,20 @@ export default {
     // handle
     if (this.type === 'alert') {
       handle = <div class={`${prefixCls}__handle`}>
-        <div class={`${prefixCls}__confirm yy-text--primary`} onclick={() => {
+        <yy-button plain block type="primary"onclick={() => {
           that.confirmDialog();
-        }} style={ that.confirmStyle }>{ this.confirm.text }</div>
+        }} style={ that.confirmStyle }>{ this.confirm.text }</yy-button>
       </div>;
     }
     if (this.type === 'confirm') {
+      console.log(this.cancel);
       handle = <div class={`${prefixCls}__handle`}>
-        <div class={`${prefixCls}__cancel`} onclick={() => {
+        <yy-button plain block type="info"onclick={() => {
           that.closeDialog();
-        }} style={ that.confirmStyle }>{ this.cancel.text }</div>
-        <div class={`${prefixCls}__confirm yy-text--primary`} onclick={() => {
+        }} style={ that.cancelStyle }>{ this.cancel.text }</yy-button>
+        <yy-button plain block type="primary"onclick={() => {
           that.confirmDialog();
-        }} style={ that.cancelStyle }>{ this.confirm.text }</div>
+        }} style={ that.confirmStyle }>{ this.confirm.text }</yy-button>
     </div>;
     }
     return [

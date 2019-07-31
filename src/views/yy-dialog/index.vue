@@ -4,7 +4,7 @@
       <div class="yy-box--gray">
         <p>title: 标题</p>
         <p>msg: 内容</p>
-        <p>confirm: {text: 确定按钮标题, color, fontSize}  cancel: {text: 取消按钮标题，color, fontSize}</p>
+        <p>confirm: {text: 确定按钮标题}  cancel: {text: 取消按钮标题}</p>
         <p>type： 类型 [alert, confirm] 默认alert</p>
         <p>titleAlign： 标题对齐方式 [left, right, center] 默认center</p>
         <p>titleColor 标题颜色</p>
@@ -30,6 +30,7 @@
     </div>
     <div class="yy-box">
       <yy-button type="primary" @click="showDialog('titleStyle')">修改样式</yy-button>
+      <yy-button type="primary" @click="showDialog('buttonStyle')">修改按钮</yy-button>
       <div class="yy-box--gray">
         <pre>{{style}}</pre>
       </div>
@@ -108,6 +109,14 @@ export default {
           titleColor: 'green',
           msgAlign: 'left',
           msgColor: '#044e04',
+        });
+          break;
+        case 'buttonStyle': this.$dialog.confirm({
+          title: '标题',
+          msg: '不一样的按钮',
+          cancel: {
+            text: '否',
+          },
         });
           break;
         case 'show': this.show = true;
