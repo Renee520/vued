@@ -42,7 +42,6 @@ export default {
   methods: {
     handleClick(option) {
       if (option.to && option.to.length) {
-        console.log(option);
         this.$router.push({
           name: option.to,
         });
@@ -52,6 +51,7 @@ export default {
     },
   },
   created() {
+    console.log(this.color);
     if (this.color) {
       this.options.forEach((option) => {
         if (!option.color || !option.color.length) {
@@ -60,6 +60,7 @@ export default {
         }
       });
     }
+    console.log(this.options);
   },
 };
 </script>

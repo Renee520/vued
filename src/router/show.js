@@ -30,7 +30,7 @@ const Router = [
     meta: {
       title: 'Popup',
       back: true,
-      icon: 'yy-icon-up-open-big',
+      icon: 'yy-icon-popup',
     },
   },
 ];

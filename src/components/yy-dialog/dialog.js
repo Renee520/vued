@@ -64,7 +64,9 @@ export default {
     }
     // content
     if (that.msg && !this.$slots.msg) {
-      content = <div style={ this.msgStyle } class={`${prefixCls}__content`}>{that.msg}</div>;
+      const msg = that.msg.replace(/\n/g, '<br />');
+      console.log(msg);
+      content = <div style={ this.msgStyle } class={`${prefixCls}__content`} domPropsInnerHTML={msg}></div>;
     }
     if (this.$slots.msg) {
       content = this.$slots.msg;
@@ -78,7 +80,6 @@ export default {
       </div>;
     }
     if (this.type === 'confirm') {
-      console.log(this.cancel);
       handle = <div class={`${prefixCls}__handle`}>
         <yy-button class={`${prefixCls}__cancel`} plain block type="info"onclick={() => {
           that.closeDialog();
