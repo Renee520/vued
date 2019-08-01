@@ -1,5 +1,6 @@
 import Dialog from '@/views/yy-dialog/index.vue';
 import Toast from '@/views/yy-toast/index.vue';
+import Popup from '@/views/yy-popup/index.vue';
 
 const Router = [
   {
@@ -20,6 +21,16 @@ const Router = [
       title: 'Dialog',
       back: true,
       icon: 'yy-icon-doc-text-inv',
+    },
+  },
+  {
+    path: '/show-popup',
+    name: 'show-popup',
+    component: Popup,
+    meta: {
+      title: 'Popup',
+      back: true,
+      icon: 'yy-icon-up-open-big',
     },
   },
 ];

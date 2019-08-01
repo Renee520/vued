@@ -1,7 +1,7 @@
 <template>
   <div :class="prefixCls">
-   <yy-aside v-model="openAside" :placement="'right'">
-     <div slot="aside">
+   <yy-popup v-model="openPopup" :placement="'right'" :width="200">
+     <div slot="popup">
        <div :class="[
         'yy-list',
         'yy-list--isLink',
@@ -17,13 +17,13 @@
           :title="currNav.title"
           @click-left="handleClickLeft"
           >
-          <span v-if="!leftArrow" @click="openAside = true" slot="right" ><i class="yy-icon-th-list"></i></span>
+          <span v-if="!leftArrow" @click="openPopup = true" slot="right" ><i class="yy-icon-th-list"></i></span>
         </yy-header>
         <transition :name="transitionName">
           <router-view />
         </transition>
       </div>
-   </yy-aside>
+   </yy-popup>
   </div>
 </template>
 <script>
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       prefixCls,
-      openAside: false,
+      openPopup: false,
       leftArrow: false,
       leftText: '',
       title: '',
@@ -48,7 +48,7 @@ export default {
       this.$router.push({
         name: nav.name,
       });
-      this.openAside = false;
+      this.openPopup = false;
     },
     handleClickLeft() {
       this.$router.back();

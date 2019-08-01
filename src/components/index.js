@@ -1,5 +1,5 @@
-import Aside from '@/components/yy-aside';
 import Header from '@/components/yy-header';
+import Popup from '@/components/yy-popup';
 import Grid from '@/components/yy-grid';
 import Loading from '@/components/yy-loading';
 import Button from '@/components/yy-button';
@@ -16,7 +16,7 @@ import Toast from '@/components/yy-toast';
 import Dialog from '@/components/yy-dialog';
 
 const components = [
-  Aside,
+  Popup,
   Header,
   Grid,
   Loading,

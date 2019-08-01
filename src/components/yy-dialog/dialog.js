@@ -80,7 +80,7 @@ export default {
     if (this.type === 'confirm') {
       console.log(this.cancel);
       handle = <div class={`${prefixCls}__handle`}>
-        <yy-button plain block type="info"onclick={() => {
+        <yy-button class={`${prefixCls}__cancel`} plain block type="info"onclick={() => {
           that.closeDialog();
         }} style={ that.cancelStyle }>{ this.cancel.text }</yy-button>
         <yy-button plain block type="primary"onclick={() => {

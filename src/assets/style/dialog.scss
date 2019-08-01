@@ -45,7 +45,8 @@
     }
   }
   &__cancel {
-    border-right: 1px solid $color-border-light;
+    border-right: 1px solid $color-border-light !important;
     color: $color-gray;
+    border-radius: 0 !important;
   }
 }
