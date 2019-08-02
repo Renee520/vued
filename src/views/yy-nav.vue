@@ -4,13 +4,15 @@
   </div>
 </template>
 <script>
+import navMixin from '@/mixins/nav';
+
 export default {
-  name: 'yy-form',
+  name: 'yy-nav',
+  mixins: [navMixin],
   methods: {
   },
   data() {
     return {
-      options: [],
     };
   },
 };

@@ -1,6 +1,7 @@
 import showRouter from '@/router/show';
 import formRouter from '@/router/form';
 import baseRouter from '@/router/base';
+import navRouter from '@/router/nav';
 
 export default {
   data() {
@@ -17,6 +18,8 @@ export default {
       case 'show': currNavRouter = showRouter;
         break;
       case 'base': currNavRouter = baseRouter;
+        break;
+      case 'nav': currNavRouter = navRouter;
         break;
       default: break;
     }
