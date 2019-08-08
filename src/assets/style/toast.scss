@@ -40,7 +40,8 @@
     }
     img {
       height: 100%;
-      max-height: $font-size * 3 - 2;
+      max-height: $font-size * 3;
+      vertical-align: middle;
     }
     width: $toast-icon-width;
     padding: $space-md * 2 - 2 $space-md;

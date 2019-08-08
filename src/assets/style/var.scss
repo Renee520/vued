@@ -39,6 +39,7 @@ $header-height: 50px;
 $button-height: 40px;
 $toast-icon-width: 134px;
 $dialog-max-width: 300px;
+$picker-item-height: 40px;
 
 /*** border raduis ***/
 $border-radius-sm: 3px;
@@ -59,4 +60,5 @@ $z-index-max: 9999;
   successColor: $color-success;
   headerHeight: $header-height;
   headerZIndex: $z-index-header;
+  pickerItemHeight: $picker-item-height;
 }

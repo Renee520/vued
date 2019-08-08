@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  padding: 0;
   margin: 0;
   text-decoration: none;
   outline: none;
@@ -47,7 +47,7 @@ input, button {
 .yy-page {
   padding: $space-primary;
   margin-top: $header-height;
-  height: calc(100vh - 50px);
+  height: calc(100% - 50px);
   overflow-y: auto;
   &--reach {
     padding: $space-primary 0;

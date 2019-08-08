@@ -19,7 +19,7 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      redirect: '/show',
+      redirect: '/form',
       children: [
         ...navRouter,
         ...baseRouters,
@@ -32,8 +32,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (!store.state.login && to.name !== 'show') {
-    next({ path: '/show' });
+  if (!store.state.login && to.name !== 'form') {
+    next({ path: '/form' });
   } else {
     let { prevRouters } = store.state;
     // 处理导航组件

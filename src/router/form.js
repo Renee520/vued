@@ -1,5 +1,6 @@
 import Radio from '@/views/yy-radio/index.vue';
 import Checkbox from '@/views/yy-checkbox/index.vue';
+import Picker from '@/views/yy-picker/index.vue';
 
 const Router = [
   {
@@ -20,6 +21,16 @@ const Router = [
       title: '复选',
       back: true,
       icon: 'yy-icon-ok-circle',
+    },
+  },
+  {
+    path: '/form-picker',
+    name: 'form-picker',
+    component: Picker,
+    meta: {
+      title: 'Picker',
+      back: true,
+      icon: 'yy-icon-mail-alt',
     },
   },
 ];

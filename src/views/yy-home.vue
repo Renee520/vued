@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-   <yy-popup v-model="openPopup" :placement="'right'" :width="200">
+   <yy-popup v-model="openPopup" show-mode="push" :placement="'right'" :width="200">
      <div slot="popup">
        <div :class="[
         'yy-list',
@@ -10,19 +10,17 @@
         {{nav.meta.title}}
        </div>
      </div>
-      <div class="yy-home">
-        <yy-header
-          :left-arrow="leftArrow"
-          :left-text="leftArrow ? '返回' : ''"
-          :title="currNav.title"
-          @click-left="handleClickLeft"
-          >
-          <span v-if="!leftArrow" @click="openPopup = true" slot="right" ><i class="yy-icon-th-list"></i></span>
-        </yy-header>
-        <transition :name="transitionName">
-          <router-view />
-        </transition>
-      </div>
+      <yy-header
+        :left-arrow="leftArrow"
+        :left-text="leftArrow ? '返回' : ''"
+        :title="currNav.title"
+        @click-left="handleClickLeft"
+        >
+        <span v-if="!leftArrow" @click="openPopup = true" slot="right" ><i class="yy-icon-th-list"></i></span>
+      </yy-header>
+      <transition :name="transitionName">
+        <router-view />
+      </transition>
    </yy-popup>
   </div>
 </template>

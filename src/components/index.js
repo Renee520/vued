@@ -14,6 +14,7 @@ import Checkbox from '@/components/yy-checkbox';
 import CheckboxGroup from '@/components/yy-checkbox-group';
 import Toast from '@/components/yy-toast';
 import Dialog from '@/components/yy-dialog';
+import Picker from '@/components/yy-picker';
 
 const components = [
   Popup,
@@ -32,6 +33,7 @@ const components = [
   CheckboxGroup,
   Toast,
   Dialog,
+  Picker,
 ];
 
 const install = (Vue) => {
