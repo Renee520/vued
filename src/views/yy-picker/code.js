@@ -1,58 +1,92 @@
 /* eslint-disable */
 
 const optionData =
-`options: [
+`const objArr = {
+  1: [
+    {
+      text: '1-1',
+      value: '1-1',
+    },
+    {
+      text: '1-2',
+      value: '1-2',
+    },
+  ],
+  2: ['2-1', '2-2', '2-3', '2-4'],
+  3: ['3-1', '3-2', '3-3', '3-4'],
+};
+`;
+const objData = `
+options1: [
   {
-    img: require('../../assets/logo.png'),
-    text: '图片',
+    text: '1',
+    value: 1,
   },
   {
-    color: 'green',
-    icon: 'yy-icon-folder-open',
-    text: '绿色',
+    text: '200',
+    value: 2,
   },
   {
-    icon: 'yy-icon-folder-open',
-    text: '图标',
+    text: '3',
+    value: 3,
   },
   {
-    icon: 'yy-icon-ok',
-    to: 'base-icon',
-    text: '路由name',
+    text: '4',
+    value: 4,
+  },
+  {
+    text: '5',
+    value: 5,
+  },
+  {
+    text: '6',
+    value: 6,
+  },
+  {
+    text: '7',
+    value: 7,
+  },
+],
+`;
+const stringData = `
+options: ['杭州', '宁波', '温州', '嘉兴', '湖州', '湖州'],
+`;
+const listData = `
+options2: [
+  {
+    values: Object.keys(objArr),
+  },
+  {
+    values: objArr[1],
   },
 ],`;
 
 const base =
-`<yy-grid :col="4" :options="options"></yy-grid>`;
-const color =
-`<yy-grid color :options="colorOptions"></yy-grid>`;
-const border =
-`<yy-grid border :options="options"></yy-grid>`;
-const fullBorder =
-`<yy-grid fullBorder :options="options"></yy-grid>`;
+`<yy-picker :options="options" @change="onChange"></yy-picker>`;
+const keyValue =
+`<yy-picker :options="options1"  @change="onChange"></yy-picker>`;
+const list =
+`<yy-picker :options="options2"  @change="onChangeObj"></yy-picker>`;
 const click =
-`<yy-grid @grid-click="handleClick" fullBorder :options="options"></yy-grid>
-
-handleClick(option) {
-  let msg = '';
-  for (const item in option) {
-    if (Object.prototype.hasOwnProperty.call(option, item)) {
-      msg += item: option[item]\n;
-    }
+`onChange({ picker, idx, value }) {
+  console.log(picker, idx, value);
+},
+onChangeObj({ idx, value }) {
+  console.log(idx, value);
+  for (let i = 1; i < this.options2.length; i += 1) {
+    this.options2[i].values = objArr[value[i - 1]];
   }
-  this.$dialog({
-    msg,
-    msgAlign: 'left',
-  });
 },
 `;
 
 
 export {
   optionData,
+  stringData,
+  objData,
+  listData,
   base,
-  color,
-  border,
-  fullBorder,
+  keyValue,
+  list,
   click,
 };

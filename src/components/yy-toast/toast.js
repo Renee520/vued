@@ -88,18 +88,7 @@ export default {
     init() {
       if (this.icon && this.icon.indexOf('/') >= 0) {
         this.isImgUrl = true;
-        if (this.icon.indexOf('http') === 0) {
-          this.imgUrl = this.icon;
-        } else {
-          import('../../assets/logo.png').then(
-            (res) => {
-              this.imgUrl = res.default;
-            },
-            (err) => {
-              console.error(err);
-            },
-          );
-        }
+        this.imgUrl = this.icon;
       } else {
         this.isImgUrl = false;
       }

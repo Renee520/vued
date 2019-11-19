@@ -1,6 +1,9 @@
 .yy-picker {
   position: relative;
+  display: -webkit-flex;
+  display: flex;
   &__content {
+    flex: 1;
     height: $picker-item-height * 5;
     overflow: hidden;
   }

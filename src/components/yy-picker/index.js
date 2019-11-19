@@ -1,97 +1,80 @@
 import vars from '@/assets/style/var.scss';
+import pickerItem from './picker-item';
 
 const prefixCls = 'yy-picker';
 export default {
   name: 'yy-picker',
+  components: {
+    pickerItem,
+  },
   props: {
     options: {
       type: Array,
       default: () => [],
     },
+    defaultIdx: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
       prefixCls,
-      startY: 0,
-      endY: 0,
-      stopY: 0,
-      scrollY: 0,
+      children: [],
     };
   },
   created() {
   },
   render() {
     const that = this;
-    const content = [];
-    if (this.options.length) {
-      this.options.forEach((item) => {
-        if (typeof item === 'string') {
-          content.push(<li class={`${prefixCls}__item`}>{item}</li>);
-        }
-        if (typeof item === 'object' && item.text) {
-          content.push(<li class={`${prefixCls}__item`}>{item.text}</li>);
-        }
-      });
+    let list = [];
+    if (this.options.length && !this.options[0].values) {
+      list = [this.options];
     }
-    const style = {
-      transitionDuration: '200ms',
-      transform: `translate3d(0, ${this.scrollY}px, 0)`,
-    };
+    if (this.options.length && this.options[0].values) {
+      // 多列
+      list = this.options;
+    }
+    console.log(list, typeof list[0].values);
     return [
       <div class={that.prefixCls}>
-        <div class={`${that.prefixCls}__content`}
-          onTouchstart={that.touchStart}
-          onTouchmove={that.touchMove}
-          onTouchend={that.touchEnd}
-        >
-          <ul style={style}>
-            {content}
-          </ul>
-        </div>
         <div class={`${that.prefixCls}__mask`} style={`background-size: 100% ${that.vars.pickerItemHeight * 2}`}></div>
         <div class={`${that.prefixCls}--selected`}></div>
+        {list.map((item, i) => (
+          <pickerItem
+            lists={typeof item.values !== 'undefined' && Array.isArray(item.values) ? item.values : item}
+            default-idx={item.defaultIdx || that.defaultIdx}
+            onChange={() => {
+              that.onChange(i);
+            }}
+          />
+        ))}
       </div>,
     ];
   },
   methods: {
-    touchStart(e) {
-      this.startY = e.touches[0].clientY;
-    },
-    touchMove(e) {
-      e.preventDefault();
-      if (e.touches[0]) {
-        this.endY = e.touches[0].clientY;
+    onChange(idex) {
+      const { idx } = this.children[idex];
+      if (!this.options[0].values) {
+        // 单列
+        this.$emit('change', {
+          picker: this.children[idex],
+          idx,
+          value: this.options[idx].text || this.options[idx],
+        });
+      } else {
+        const idxs = [];
+        const values = [];
+        this.children.forEach((item, i) => {
+          idxs.push(item.idx);
+          values.push(this.options[i].values[item.idx].text || this.options[i].values[item.idx]);
+        });
+        this.$emit('change', {
+          picker: this.children[idex],
+          idx: idxs,
+          value: values,
+        });
       }
-      let scrollY = this.endY - this.startY + this.stopY;
-      console.log(this.endY, this.startY, this.stopY, scrollY);
-      if (scrollY % this.itemHeight !== 0) {
-        if (scrollY > this.itemHeight * 3) {
-          scrollY = this.itemHeight * 3;
-        }
-        if (scrollY < -this.itemHeight * (this.options.length - 2)) {
-          scrollY = -this.itemHeight * (this.options.length - 2);
-        }
-      }
-      this.scrollY = scrollY;
-    },
-    touchEnd(e) {
-      if (e.touches[0]) {
-        this.endY = e.touches[0].clientY;
-      }
-      let scrollY = this.endY - this.startY + this.stopY;
-      if (scrollY % this.itemHeight !== 0) {
-        const n = Math.round(scrollY / this.itemHeight);
-        scrollY = n * this.itemHeight;
-        if (scrollY > this.itemHeight * 2) {
-          scrollY = this.itemHeight * 2;
-        }
-        if (scrollY < -this.itemHeight * (this.options.length - 3)) {
-          scrollY = -this.itemHeight * (this.options.length - 3);
-        }
-      }
-      this.scrollY = scrollY;
-      this.stopY = this.scrollY;
-      console.log(e);
     },
   },
   computed: {

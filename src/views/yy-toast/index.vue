@@ -58,6 +58,7 @@ export default {
       success,
       duration,
       instance,
+      imgUrl: '',
     };
   },
   methods: {
@@ -68,7 +69,7 @@ export default {
         case 'text2': this.$toast('这是一段长文本，这是一段长文本，这是一段长文本');
           break;
         case 'img': this.$toast({
-          icon: '../../assets/logo.png',
+          icon: this.imgUrl,
           msg: '一张图片',
         });
           break;
@@ -92,7 +93,7 @@ export default {
         });
           break;
         case 'showMask': this.$toast({
-          icon: '../../assets/logo.png',
+          icon: this.imgUrl,
           msg: '点击其他按钮',
           showMask: false,
         });
@@ -115,6 +116,16 @@ export default {
     },
   },
   created() {
+    import('../../assets/logo.png')
+      .then(
+        (res) => {
+          console.log(res);
+          this.imgUrl = res.default;
+        },
+        (err) => {
+          console.error(err);
+        },
+      );
   },
 };
 </script>
